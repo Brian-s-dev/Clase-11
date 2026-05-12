@@ -30,7 +30,7 @@ const userSchema = new mongoose.Schema(
     }
 )
 
-const USER_COLLECTION_NAME = "User"
+export const USER_COLLECTION_NAME = "User"
 const User = mongoose.model(USER_COLLECTION_NAME, userSchema);
 
 

@@ -1,15 +1,15 @@
-import mongoose from "mongoose";
-import ENVIRONMENT from "./environment.config.js";
+import mongoose from 'mongoose';
+import ENVIRONMENT from './environment.config.js';
 
 const connectMongoDB = async () => {
     try {
-        await mongoose.connect(ENVIRONMENT.MONGO_DB_CONENECTION_STRING + '/' + ENVIRONMENT.MONGO_DB_NAME);
-        console.log("La conexion funciona");
+        await mongoose.connect(ENVIRONMENT.MONGO_DB_CONNECTION_STRING, {
+            dbName: ENVIRONMENT.MONGO_DB_NAME
+        });
     } catch (error) {
-        console.log("Hubo un fallo en la conexion de la BD", error);
+        console.error("Error al conectar a MongoDB:", error);
+        process.exit(1);
     }
-}
+};
 
-console.log(ENVIRONMENT.MONGO_DB_CONENECTION_STRING + '/' + ENVIRONMENT.MONGO_DB_NAME);
-
-export default connectMongoDB;  
+export default connectMongoDB;
