@@ -1,7 +1,4 @@
 import mongoose from "mongoose";
-/* 
-Definir el esquema que tendra un usuario en nuestra apicacion
-*/
 
 const userSchema = new mongoose.Schema(
     {
@@ -16,6 +13,11 @@ const userSchema = new mongoose.Schema(
         password: {
             type: String,
             required: true
+        },
+        email_verificado: {
+            type: Boolean,
+            required: true,
+            default: false
         },
         fecha_creacion: {
             type: Date,
